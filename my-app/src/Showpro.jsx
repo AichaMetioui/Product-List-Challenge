@@ -39,7 +39,7 @@ function Showpro() {
             <div className="Show-links">
                 <Link to={'/product'} >Back</Link>
                 <br />
-                <Link to={'/Product/Edit'}>Edit</Link>
+                <Link to={`/Product/Edit/${product.id}`}>Edit</Link>
             </div>
 
         </div>

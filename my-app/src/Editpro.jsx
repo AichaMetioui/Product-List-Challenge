@@ -1,29 +1,54 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 
 
 function Editpro (){
+
+    let { id } = useParams();
+    const [product,setProduct]=useState({});
+
+useEffect(()=>{
+    fetch(`https://fakestoreapi.com/products/${id}`)
+    .then(res => res.json()
+    )
+    .then((data) => {
+        console.log(data);
+        setProduct(data);
+    })
+ 
+    })
+
+
+
+
+
+
+
+
+
     return(
         <div>
    <h1>Edit</h1>
    <div className="edit-product">
-                <p>Name</p>
+                <p></p>
                 <br />
-                <input type="text" />
+                <input type="text"value={product.title} />
                 <br />
-                <p>Price</p>
+                <p></p>
                 <br />
-                <input type="number" />
+                <input type="number" value={product.price} />
                 <br />
-                <p>Description</p>
+                <p></p>
                 <br />
-                <input type="text" />
+                <input type="text"   value={product.description}/>
+
             </div>
 
 
 <Link to={'/product'}>Home</Link>
 <br />
-<Link to={'/Product/Showpro'}>Show</Link>
+<Link to={`/Product/Showpro/${product.id}`}>Show</Link>
         </div>
     )
 }

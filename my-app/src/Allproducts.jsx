@@ -22,13 +22,21 @@ function Allproducts() {
             });
     }, []);
 
+    function deletePro(id) {
 
+        console.log(id);
+        fetch(`https://fakestoreapi.com/products/${id}`, {
+            method: "DELETE"
+
+        }) .then(res => res.json())
+        .then(json => console.log(json))
+    }
 
 
     return (
         <div>
             <h1>Products</h1>
-          
+
             <div className="Table">
                 <table>
                     <tr>
@@ -43,11 +51,11 @@ function Allproducts() {
                             <td>{product.title}</td>
                             <td>{product.description}</td>
                             <td>{product.price}</td>
-                            <td><Link to={`/Product/Showpro/${product.id}`} >Show</Link>
+                            <td><Link to={`/Product/Showpro/${product.id}`} >Show/</Link>
 
-                                <Link to={"/Product/Edit"}>Edit</Link>
+                                <Link to={`/Product/Edit/${product.id}`}>Edit/</Link>
 
-                                <Link>delete</Link></td>
+                                <Link onClick={deletePro(product.id)}>delete</Link></td>
 
                         </tr>
                     ))}

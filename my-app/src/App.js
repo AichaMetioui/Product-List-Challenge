@@ -23,7 +23,8 @@ function App() {
           <Route path='/product' element={<Allproducts />} />
           <Route path='/Product/new' element={<Newproduct />} />
           <Route path='/Product/Showpro/:id' element={<Showpro />} />
-          <Route path='/Product/Edit' element={< Editpro />} />
+          <Route path='/Product/Edit/:id' element={< Editpro />} />
+          
         </Routes>
       </div>
     </BrowserRouter>
