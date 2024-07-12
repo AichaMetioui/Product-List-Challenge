@@ -21,7 +21,7 @@ function Editpro (){
             </div>
 
 
-<Link to={'/Allproducts'}>Home</Link>
+<Link to={'/product'}>Home</Link>
 <br />
 <Link to={'/Product/Showpro'}>Show</Link>
         </div>

@@ -1,26 +1,36 @@
 
+
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
 function Newproduct() {
-
+    
+    
+    const navigate = useNavigate();
 
     function Addproduct() {
+
+        const name = document.getElementById("Name").value;
+        const price =document.getElementById("price").value;
+        const description = document.getElementById("description").value;
+       
+
         fetch('https://fakestoreapi.com/products', {
             method: "POST",
-            body: JSON.stringify(
-                {
-                    title: 'test product',
-                    price: 13.5,
-                    description: 'lorem ipsum set',
-                    image: 'https://i.pravatar.cc',
-                    category: 'electronic'
+            body: JSON.stringify( 
+                {   title: name,
+                    price: price,
+                    description: description,
                 }
             )
         })
             .then(res => res.json())
             .then(json => console.log(json))
+            navigate('/product')
+
+ 
     }
 
     return (
@@ -38,7 +48,7 @@ function Newproduct() {
                 <br />
                 <p>Description</p>
                 <br />
-                <input type="text" id=" description" />
+                <input type="text" id="description" />
             </div>
             <br />
             <br />
@@ -46,7 +56,7 @@ function Newproduct() {
             <button onClick={Addproduct}>create</button>
             <br />
             <br />
-            <Link to={'/Allproducts'}>Go back</Link>
+            <Link to={'/product'}>Go back</Link>
 
 
         </div>

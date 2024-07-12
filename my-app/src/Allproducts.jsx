@@ -43,7 +43,7 @@ function Allproducts() {
                             <td>{product.title}</td>
                             <td>{product.description}</td>
                             <td>{product.price}</td>
-                            <td><Link to={"/Product/Showpro"} >Show</Link>
+                            <td><Link to={`/Product/Showpro/${product.id}`} >Show</Link>
 
                                 <Link to={"/Product/Edit"}>Edit</Link>
 
